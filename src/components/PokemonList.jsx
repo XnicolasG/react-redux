@@ -5,13 +5,10 @@ export const PokemonList = ({pokemons}) => {
   return (
     <div className="flex flex-wrap justify-center gap-4">
         {
-            pokemons.map((pokemon, index) => (
-                <Card key={index}/>
+            pokemons.map((pokemon) => (
+                <Card name={pokemon.name} key={pokemon.name}/>
             ))
         }
     </div>
   )
-}
-PokemonList.defaultProps = {
-    pokemons: Array(10).fill('')
 }

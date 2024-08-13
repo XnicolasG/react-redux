@@ -1,6 +1,6 @@
 
 
-export const Card = () => {
+export const Card = ({name}) => {
     return (
         <div className="group min-w-52 flex flex-col items-center rounded-xl bg-zinc-800 ">
             <div className="h-32 w-full overflow-hidden">
@@ -9,7 +9,7 @@ export const Card = () => {
                     src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/132.png"
                     alt="poke" />
             </div>
-            <h2 className=" py-2 font-semibold text-lg text-white">Pokemon Name</h2>
+            <h2 className=" py-2 font-semibold text-lg text-white">{name}</h2>
         </div>
     )
 }
