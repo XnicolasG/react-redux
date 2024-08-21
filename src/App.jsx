@@ -1,5 +1,5 @@
 
-import { connect } from 'react-redux'
+import { connect, useDispatch, useSelector } from 'react-redux'
 import { setPokemons } from './actions'
 import { PokemonList } from './components/PokemonList'
 import { Searcher } from './components/Searcher'
@@ -7,8 +7,10 @@ import { useGetCharacters } from './hooks/useGetCharcters'
 
 
 
-function App({pokemons, setPokemons}) {
-  useGetCharacters({setPokemons});
+function App() {
+  const pokemons = useSelector(state => state.pokemons)
+  const dispatch = useDispatch()
+  useGetCharacters({setPokemons: (pokemons) => dispatch(setPokemons(pokemons)) });
   
   return (
     <main className='bg-black min-h-svh'>
@@ -25,12 +27,5 @@ function App({pokemons, setPokemons}) {
     </main>
   )
 }
-const mapStateToProps = (state) => ({
-  pokemons: state.pokemons
-});
 
-const mapDispatchToProps = (dispatch) => ({
-  setPokemons: (value) => dispatch(setPokemons(value))
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

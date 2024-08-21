@@ -6,7 +6,11 @@ export const PokemonList = ({pokemons}) => {
     <div className="flex flex-wrap justify-center gap-4">
         {
             pokemons.map((pokemon) => (
-                <Card name={pokemon.name} key={pokemon.name}/>
+                <Card 
+                key={pokemon.name}
+                name={pokemon.name}
+                image={pokemon.sprites.front_default}
+                />
             ))
         }
     </div>
